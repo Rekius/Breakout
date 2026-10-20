@@ -1,0 +1,22 @@
+LADRILLO OVERDRIVE - Sound FX Pack para Unity
+=================================================
+
+3 efectos normales para elegir al azar:
+- ladrillo_overdrive_01.wav
+- ladrillo_overdrive_02.wav
+- ladrillo_overdrive_03.wav
+
+Bonus para combos / varios ladrillos seguidos:
+- ladrillo_overdrive_COMBO.wav
+
+PREVIEW:
+- ladrillo_overdrive_demo.mp3 (sonidos 01, 02, 03, COMBO)
+
+Detalles: original, estéreo, 48 kHz, 16-bit PCM WAV, sin necesidad de plugins.
+Consejo: usá los 3 normales al azar sin sumar cambios exagerados de pitch;
+probá el COMBO cuando se rompan varios ladrillos seguidos.
+
+Unity: arrastrá los WAV a Assets, asigná un AudioSource y usá
+AudioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+Poné solo los 3 normales en el arreglo. Usá el sonido COMBO por separado.
+Ajustá el volumen final en el AudioSource según tu música.

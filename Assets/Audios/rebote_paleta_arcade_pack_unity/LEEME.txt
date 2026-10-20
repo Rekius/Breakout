@@ -1,0 +1,22 @@
+REBOTE DE PALETA - ARCADE BREAKOUT SOUND FX
+============================================
+3 variaciones originales con el mismo timbre, levemente distinta altura y ataque:
+ - rebote_paleta_arcade_01.wav (principal)
+ - rebote_paleta_arcade_02.wav (levemente grave)
+ - rebote_paleta_arcade_03.wav (levemente aguda)
+
+Formato: WAV PCM 16-bit, 48000 Hz, MONO. Duracion: 0.235 segundos.
+
+Escucha la demostracion: rebote_paleta_arcade_demo.mp3
+Los tres sonidos aparecen individualmente, despues como una cadena de rebotes.
+
+Para Unity:
+  1. Copia estos archivos WAV a Assets/Audio.
+  2. Asignalos a un arreglo AudioClip[] en tu script.
+  3. Al detectar rebote de la pelota contra la paleta, reproduce aleatoriamente:
+
+     paddleAudioSource.PlayOneShot(paddleBounceClips[Random.Range(0, paddleBounceClips.Length)]);
+
+Deja Spatial Blend en 0 (2D). Proba un volumen ligeramente inferior al sonido
+ladrillo_overdrive para que romper un ladrillo sea mas gratificante que rebotar.
+No agrega eco ni cola larga: ideal para rebotes seguidos.
