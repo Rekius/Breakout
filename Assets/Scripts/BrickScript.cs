@@ -7,7 +7,7 @@ public class BrickScript : MonoBehaviour
     [SerializeField] private GameObject breakEffect;
     [SerializeField] private Color[] hitColors;
 
-    [SerializeField] private GameObject powerUpPrefab;
+    [SerializeField] private GameObject[] powerUpPrefabs;
     [SerializeField, Range(0, 1)] private float powerUpDropChance = 0.5f;
 
     private SpriteRenderer sr;
@@ -35,10 +35,6 @@ public class BrickScript : MonoBehaviour
 
         if (hitLeft <= 0)
         {
-            if (UnityEngine.Random.value < powerUpDropChance)
-            {
-                Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
-            }
             Break();
         }
         else
@@ -56,6 +52,7 @@ public class BrickScript : MonoBehaviour
 
     private void Break()
     {
+        TryDropPowerUp();
         BreakingEffect();
 
         AudioManager.Instance.PlayBrickBreak();
@@ -68,5 +65,14 @@ public class BrickScript : MonoBehaviour
         GameObject fx = Instantiate(breakEffect, transform.position, Quaternion.identity);
         var main = fx.GetComponent<ParticleSystem>().main;
         main.startColor = sr.color;
+    }
+
+    private void TryDropPowerUp()
+    {   
+        if (powerUpPrefabs.Length == 0) return;
+        if (UnityEngine.Random.value > powerUpDropChance) return;
+
+        GameObject prefab = powerUpPrefabs[UnityEngine.Random.Range(0, powerUpPrefabs.Length)];
+        Instantiate(prefab, transform.position, Quaternion.identity);
     }
 }

@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int penaltyScore = -50;
 
+    [SerializeField] private int maxLives = 5;
+
     private int currentLevel = 0;
     private int lives;
 
@@ -126,5 +128,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+
+    public void AddLife()
+    {
+        lives = Mathf.Min(lives + 1, maxLives);
+        UpdateLivesUI();
     }
 }

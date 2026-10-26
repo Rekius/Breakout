@@ -1572,6 +1572,7 @@ MonoBehaviour:
   spawner: {fileID: 1187223081}
   levelText: {fileID: 992778638}
   penaltyScore: -50
+  maxLives: 5
 --- !u!4 &640875528
 Transform:
   m_ObjectHideFlags: 0
@@ -3292,63 +3293,6 @@ Transform:
   - {fileID: 1186502886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2835816609604275308
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2566144815883469294, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4336221774669082325, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
-      propertyPath: m_Name
-      value: PowerUp_WidePaddle
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3364,4 +3308,3 @@ SceneRoots:
   - {fileID: 1469960710}
   - {fileID: 862002629}
   - {fileID: 1243906179}
-  - {fileID: 2835816609604275308}

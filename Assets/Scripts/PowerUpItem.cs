@@ -1,8 +1,13 @@
 using System;
 using UnityEngine;
-
+public enum PowerUpType
+{
+    WidePaddle,
+    ExtraLife
+}
 public class PowerUpItem : MonoBehaviour
 {
+    [SerializeField] private PowerUpType type;
     [SerializeField] private float fallSpeed = 3f;
     [SerializeField] private float multiplier = 2f;
     [SerializeField] private float duration = 4f;
@@ -16,7 +21,21 @@ public class PowerUpItem : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        other.GetComponent<PlayerMovementScript>().WidenPaddle(multiplier, duration);
+        Apply(other);
         Destroy(gameObject);
+    }
+
+    private void Apply(Collider2D paddle)
+    {
+        switch (type)
+        {
+            case PowerUpType.WidePaddle:
+                paddle.GetComponent<PlayerMovementScript>().WidenPaddle(multiplier, duration);
+                break;
+
+            case PowerUpType.ExtraLife:
+                GameManager.Instance.AddLife();
+                break;
+        }
     }
 }
