@@ -1,9 +1,14 @@
+using System;
+using Unity.InferenceEngine;
 using UnityEngine;
 
 public class BrickScript : MonoBehaviour
 {
     [SerializeField] private GameObject breakEffect;
     [SerializeField] private Color[] hitColors;
+
+    [SerializeField] private GameObject powerUpPrefab;
+    [SerializeField, Range(0, 1)] private float powerUpDropChance = 0.5f;
 
     private SpriteRenderer sr;
     private int hitLeft = 1;
@@ -30,6 +35,10 @@ public class BrickScript : MonoBehaviour
 
         if (hitLeft <= 0)
         {
+            if (UnityEngine.Random.value < powerUpDropChance)
+            {
+                Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
+            }
             Break();
         }
         else

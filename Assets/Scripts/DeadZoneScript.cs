@@ -8,5 +8,9 @@ public class DeadZoneScript : MonoBehaviour
         {
             GameManager.Instance.LoseLife();
         }
+        if (collision.CompareTag("PowerUp"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

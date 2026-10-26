@@ -157,3 +157,6 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0.021978855, g: 0, b: 1, a: 1}
   - {r: 0.13751912, g: 1, b: 0, a: 1}
+  powerUpPrefab: {fileID: 4336221774669082325, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
+  powerUpDropChance: 0.5
+  breakPoints: 10
