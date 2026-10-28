@@ -6,7 +6,7 @@ public class PaddleBounce : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Ball")) return;
         
-        AudioManager.Instance.PlayPaddleHit();
+        AudioManager.Instance.Play(SoundType.PaddleHit);
 
         BallScript ball = collision.gameObject.GetComponent<BallScript>();
         Rigidbody2D ballRb = collision.gameObject.GetComponent<Rigidbody2D>();

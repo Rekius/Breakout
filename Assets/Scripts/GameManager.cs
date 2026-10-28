@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     public void LoseLife()
     {
         lives--;
-        AudioManager.Instance.PlayLoseLife();
+        AudioManager.Instance.Play(SoundType.LoseLife);
         UpdateLivesUI();
 
         if (lives <= 0)

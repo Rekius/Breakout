@@ -62,7 +62,7 @@ public class BallScript : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Wall")) return;
 
-        AudioManager.Instance.PlayWallBounce();
+        AudioManager.Instance.Play(SoundType.WallBounce);
     }
 
     public void SetBallSpeed(float newSpeed)

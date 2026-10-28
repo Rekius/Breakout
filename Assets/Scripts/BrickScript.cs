@@ -41,7 +41,7 @@ public class BrickScript : MonoBehaviour
         {
             BreakingEffect();
             UpdateColor();
-            AudioManager.Instance.PlayBrickBreak();
+            AudioManager.Instance.Play(SoundType.BrickBreak);
         }
     }
 
@@ -55,7 +55,7 @@ public class BrickScript : MonoBehaviour
         TryDropPowerUp();
         BreakingEffect();
 
-        AudioManager.Instance.PlayBrickBreak();
+        AudioManager.Instance.Play(SoundType.BrickBreak);
         GameManager.Instance.BrickDestroyed(maxHits * breakPoints);
         Destroy(gameObject);
     }

@@ -27,6 +27,7 @@ public class PowerUpItem : MonoBehaviour
 
     private void Apply(Collider2D paddle)
     {
+        AudioManager.Instance.Play(SoundType.PowerUpPickup);
         switch (type)
         {
             case PowerUpType.WidePaddle:
