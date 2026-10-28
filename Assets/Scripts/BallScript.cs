@@ -5,9 +5,12 @@ public class BallScript : MonoBehaviour
 {
     [SerializeField] private float speed = 6f;
     [SerializeField] private Transform paddle;
-    [SerializeField] private float launchDelay = 1f;
 
-    public float BallSpeed => speed;
+    private float speedMultiplier = 1f;
+    private Coroutine slowRoutine;
+    private Coroutine launchRoutine;
+
+    public float BallSpeed => speed * speedMultiplier;
 
     private PlayerMovement controls;
 
@@ -38,11 +41,11 @@ public class BallScript : MonoBehaviour
 
     public void ResetBall()
     {
-        StopAllCoroutines();
-        StartCoroutine(ReseteRoutin());
+        if (launchRoutine != null) StopCoroutine(launchRoutine);
+        launchRoutine = StartCoroutine(ResetRoutin());
     }
 
-    private IEnumerator ReseteRoutin()
+    private IEnumerator ResetRoutin()
     {
         rb.linearVelocity = Vector2.zero;
 
@@ -55,7 +58,7 @@ public class BallScript : MonoBehaviour
         }
 
         Vector2 direction = new Vector2(Random.Range(-1f, 1f), 1f).normalized;
-        rb.linearVelocity = direction * speed;
+        rb.linearVelocity = direction * BallSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -68,5 +71,28 @@ public class BallScript : MonoBehaviour
     public void SetBallSpeed(float newSpeed)
     {
         speed = newSpeed;
+    }
+
+    public void SlowDown(float multiplier, float duration)
+    {
+        if (slowRoutine != null) StopCoroutine(slowRoutine);
+        slowRoutine = StartCoroutine(SlowRoutine(multiplier, duration));
+    }
+
+    private IEnumerator SlowRoutine(float multiplier, float duration)
+    {
+        speedMultiplier = multiplier;
+        ApplyCurrentSpeed();
+
+        yield return new WaitForSeconds(duration);
+
+        speedMultiplier = 1f;
+        ApplyCurrentSpeed();
+        slowRoutine = null;
+    }
+
+    private void ApplyCurrentSpeed()
+    {
+        rb.linearVelocity = rb.linearVelocity.normalized * BallSpeed;
     }
 }

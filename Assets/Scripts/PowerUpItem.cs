@@ -3,7 +3,8 @@ using UnityEngine;
 public enum PowerUpType
 {
     WidePaddle,
-    ExtraLife
+    ExtraLife,
+    SlowBall
 }
 public class PowerUpItem : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PowerUpItem : MonoBehaviour
     [SerializeField] private float fallSpeed = 3f;
     [SerializeField] private float multiplier = 2f;
     [SerializeField] private float duration = 4f;
+    [SerializeField] private float slowMultiplier = 0.6f;
 
     private void Update()
     {
@@ -36,6 +38,10 @@ public class PowerUpItem : MonoBehaviour
 
             case PowerUpType.ExtraLife:
                 GameManager.Instance.AddLife();
+                break;
+
+            case PowerUpType.SlowBall:
+                GameManager.Instance.SlowBall(slowMultiplier, duration);
                 break;
         }
     }

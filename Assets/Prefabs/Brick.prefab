@@ -160,5 +160,6 @@ MonoBehaviour:
   powerUpPrefabs:
   - {fileID: 4336221774669082325, guid: a4de2568295bcd64292dbd28d502c1a9, type: 3}
   - {fileID: 4336221774669082325, guid: 3effb5b28b59fef40af4e02fa32358a7, type: 3}
+  - {fileID: 4336221774669082325, guid: 4ee381d686bdefd41a09b856eb5521a7, type: 3}
   powerUpDropChance: 0.2
   breakPoints: 10

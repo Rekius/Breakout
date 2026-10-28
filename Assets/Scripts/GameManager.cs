@@ -135,4 +135,9 @@ public class GameManager : MonoBehaviour
         lives = Mathf.Min(lives + 1, maxLives);
         UpdateLivesUI();
     }
+
+    public void SlowBall(float multiplier, float duration)
+    {
+        ball.SlowDown(multiplier, duration);
+    }
 }
